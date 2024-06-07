@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BucketController : MonoBehaviour
 {
-    public GameObject Win;
+    public GameObject Done;
+    public GameController Game;
+    public GameObject Tools;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,9 @@ public class BucketController : MonoBehaviour
         if (item != null)
         {
             Destroy(col.gameObject);
-            Win.SetActive(true);
+            Done.SetActive(true);
+            Game.Stop();
+            Tools.SetActive(false);
         }
     }
 }

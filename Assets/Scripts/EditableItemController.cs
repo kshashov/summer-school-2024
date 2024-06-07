@@ -9,6 +9,7 @@ public class EditableItemController : MonoBehaviour
     private float angleOffset;
     private Vector3 dragOffset;
     private bool dragged;
+    public bool IsMovable = true;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,10 @@ public class EditableItemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsMovable) { 
+            return; 
+        }
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (col == Physics2D.OverlapPoint(mousePosition))
         {

@@ -7,9 +7,7 @@ public class BallController : MonoBehaviour
 {
     private Camera camera;
     private Renderer renderer;
-    public GameObject GameOver;
-
-    public bool IsGameOver { get; private set; }
+    public GameController Game;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +19,11 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsGameOver)
+        if (!IsVisible())
         {
-            if (!IsVisible())
-            {
-                IsGameOver = true;
-                GameOver.SetActive(true);
-            }
+            Game.Stop();
         }
+
     }
 
     public bool IsVisible()

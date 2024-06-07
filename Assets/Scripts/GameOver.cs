@@ -30,4 +30,10 @@ public class GameOver : MonoBehaviour
         GameOverPanel.SetActive(false);
         Game.Reset();
     }
+
+    public void OnNext()
+    {
+        GameOverPanel.SetActive(false);
+        Game.NextLevel();
+    }
 }

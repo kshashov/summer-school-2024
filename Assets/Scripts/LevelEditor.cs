@@ -38,6 +38,12 @@ public class LevelEditor : MonoBehaviour
             ItemButtons[i].Clicked = false;
             ItemButtons[i].gameObject.SetActive(false);
         }
+
+        var items = GameObject.FindGameObjectsWithTag("Item");
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i].GetComponent<EditableItemController>().IsMovable = false;
+        }
     }
 
     public void Enable()
@@ -46,6 +52,12 @@ public class LevelEditor : MonoBehaviour
         for (int i = 0; i < ItemButtons.Length; i++)
         {
             ItemButtons[i].gameObject.SetActive(true);
+        }
+
+        var items = GameObject.FindGameObjectsWithTag("Item");
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i].GetComponent<EditableItemController>().IsMovable = true;
         }
     }
 
