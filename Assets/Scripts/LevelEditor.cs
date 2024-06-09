@@ -11,17 +11,11 @@ public class LevelEditor : MonoBehaviour
     public int CurrentItem = 0;
     public bool Enabled = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     public void Update()
     {
         Vector2 mousePosition = Game.GetMouseWorldPosition();
 
+        // Create a new item if preview is placed
         if (Input.GetMouseButtonDown(0) && ItemButtons[CurrentItem].Clicked)
         {
             ItemButtons[CurrentItem].Clicked = false;

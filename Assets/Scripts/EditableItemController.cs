@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class EditableItemController : MonoBehaviour
 {
+    public bool IsMovable = true;
     private Collider2D col;
     private Vector3 screenPos;
     private float angleOffset;
     private Vector3 dragOffset;
     private bool dragged;
-    public bool IsMovable = true;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         col = GetComponent<Collider2D>();
-        //Game = GameObject.FindGameObjectWithTag("Game").GetComponent<GameController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!IsMovable) { 
@@ -57,6 +53,7 @@ public class EditableItemController : MonoBehaviour
             }
         }
 
+        // Stop dragging
         if (Input.GetMouseButtonUp(0))
         {
             dragged = false;

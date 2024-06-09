@@ -9,15 +9,9 @@ public class PlayController : MonoBehaviour
     public GameController Game;
     private int currentSprite = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        // Update the immage according to the current game state
         int sprite = Game.IsPlay ? 1 : 0;
         if (currentSprite != sprite)
         {
@@ -28,7 +22,11 @@ public class PlayController : MonoBehaviour
 
     public void ButtonClicked()
     {
-
         Game.PlayStop();
+    }
+
+    public void OnReset()
+    {
+        Game.Reset();
     }
 }
